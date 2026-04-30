@@ -1,0 +1,267 @@
+/* 
+    ================================================================
+    SUPER DETAILED CSS: THE ENCYCLOPEDIA STYLING
+    ================================================================
+*/
+
+:root {
+    --primary: #3b82f6;
+    --secondary: #8b5cf6;
+    --bg-dark: #0f172a;
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --card-bg: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 
+   THE BOX MODEL RESET
+   Every element starts with 0 margin and 0 padding.
+   'box-sizing: border-box' ensures padding doesn't break our layout.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* 
+   FLEXBOX NAVIGATION
+   'display: flex' makes the container flexible.
+   'justify-content: center' centers the inner content.
+*/
+.navbar {
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    width: 90%;
+    display: flex; /* Flexbox inside navbar */
+    justify-content: space-between; /* Pushes items to edges */
+    align-items: center; /* Centers items vertically */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* 
+   HERO SECTION
+   Using Flexbox to center large headings.
+*/
+.hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+/* 
+   THE ENCYCLOPEDIA GRID
+   Using CSS Grid to organize our lesson cards.
+*/
+.section {
+    padding: 100px 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.dark-bg {
+    background-color: #f1f5f9;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.edu-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.edu-card h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+/* 
+   CSS ATTRIBUTE DEMOS
+   Live examples of color, bg-color, font-size.
+*/
+.color-box {
+    color: #ffffff;
+    background-color: var(--primary); /* Topic: background-color */
+    padding: 20px; /* Topic: padding */
+    border: 3px solid #1e40af; /* Topic: border */
+    margin-top: 15px; /* Topic: margin */
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* 
+   SUPER DETAILED BOX MODEL VISUALIZER
+*/
+.margin-padding-visual {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.margin-layer {
+    background: rgba(59, 130, 246, 0.1);
+    padding: 50px; /* This represents the margin gap */
+    border: 2px dashed var(--primary);
+    position: relative;
+}
+
+.border-layer {
+    border: 6px solid var(--text-dark); /* This is the actual border */
+    padding: 50px; /* This represents the padding gap */
+    background: #ffffff;
+    position: relative;
+}
+
+.padding-layer {
+    background: rgba(139, 92, 246, 0.1);
+    padding: 30px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    position: relative;
+}
+
+.content-layer {
+    background: var(--primary);
+    color: white;
+    padding: 20px;
+    font-weight: 800;
+}
+
+.visual-label {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 10px;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+/* 
+   FLEXBOX MASTERY STYLES
+*/
+.flex-master-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.flex-box-demo {
+    display: flex; /* TOPIC: flexbox */
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
+}
+
+.f-between { justify-content: space-between; }
+.f-center { justify-content: center; }
+
+.item {
+    background: var(--primary);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* BUTTONS & INPUTS */
+.btn-main {
+    padding: 1rem 2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4); }
+
+.input-demo {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.btn-demo {
+    background: var(--text-dark);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+    padding: 50px;
+    text-align: center;
+    background: var(--bg-dark);
+    color: white;
+}

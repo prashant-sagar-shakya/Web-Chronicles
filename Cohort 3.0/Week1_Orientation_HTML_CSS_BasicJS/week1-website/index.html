@@ -1,0 +1,189 @@
+<!DOCTYPE html> <!-- [1] DOCTYPE: Tells the browser this is HTML5. Every page MUST start with this. -->
+<html lang="en"> <!-- [2] HTML TAG: The root container for the whole page. lang="en" helps with translation. -->
+
+<head> <!-- [TOPIC 2: head] The brain of the website. 
+           It contains instructions for the browser that users don't see. -->
+    <meta charset="UTF-8"> <!-- Ensures symbols, accents, and emojis look correct. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes site mobile-friendly. -->
+    
+    <title>Mastering HTML & CSS | The Ultimate Encyclopedia</title> <!-- The page title in the browser tab. -->
+    
+    <link rel="stylesheet" href="index.css"> <!-- Links the CSS file to this HTML file. -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+</head>
+
+<body> <!-- [TOPIC 3: body] The heart of the website. 
+           Everything inside body is what you actually see on the screen. -->
+
+    <!-- NAVIGATION (Topic 1: div, span) -->
+    <header class="navbar">
+        <div class="nav-container"> 
+            <span class="logo"><b>Welcome Page</span> <!-- Topic 5: b for bold logo part -->
+            <nav class="nav-links">
+                <a href="#html-encyclopedia">HTML Topics</a>
+                <a href="#css-lab">CSS Lab</a>
+                <a href="#flexbox-mastery">Flexbox</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The <span>Complete</span> Masterclass</h1>
+            <p>Every tag from your images, every style attribute, explained in super detail.</p>
+            <button class="btn-main">Scroll Down to Learn</button>
+        </div>
+    </section>
+
+    <!-- SECTION 1: THE HTML ENCYCLOPEDIA (Covering all Image 2 Topics) -->
+    <section id="html-encyclopedia" class="section">
+        <span class="section-tag">Part One</span>
+        <h2 class="section-title">The HTML Encyclopedia</h2>
+        
+        <div class="edu-grid">
+            <!-- Topic 1: div & span -->
+            <div class="edu-card">
+                <h3>1. div vs span (The Containers)</h3>
+                <p><b>Div</b> is a "Block" element. It takes up the 100% width of the row, like a big brick.</p>
+                <p><b>Span</b> is an "Inline" element. It only takes up the space it needs, like a small pebble.</p>
+                <div style="background: var(--primary); padding: 5px; margin: 10px 0;">I am a DIV (Block)</div>
+                <span style="background: var(--secondary); padding: 5px;">I am a SPAN (Inline)</span>
+            </div>
+
+            <!-- Topic 4: h1 to h6 -->
+            <div class="edu-card">
+                <h3>4. Headings (h1 to h6)</h3>
+                <p>These define the importance of your titles.</p>
+                <h1>h1: Main Title</h1>
+                <h2>h2: Section Title</h2>
+                <h3>h3: Subtitle</h3>
+                <h4>h4: Small Title</h4>
+                <h5>h5: Tiny Title</h5>
+                <h6>h6: Smallest Title</h6>
+            </div>
+
+            <!-- Topic 5: b, i, u -->
+            <div class="edu-card">
+                <h3>5. Text Formatting (b, i, u)</h3>
+                <p>Ways to make your text stand out:</p>
+                <ul>
+                    <li><b>b Tag</b>: Makes text <b>Bold</b> (heavy).</li>
+                    <li><i>i Tag</i>: Makes text <i>Italic</i> (slanted).</li>
+                    <li><u>u Tag</u>: Makes text <u>Underlined</u> (line below).</li>
+                </ul>
+            </div>
+
+            <!-- Topic 6: a (Links) -->
+            <div class="edu-card">
+                <h3>6. Anchor (a) - Links</h3>
+                <p>Used to travel between sections or websites.</p>
+                <a href="https://google.com" target="_blank" class="link-demo">Click here to go to Google</a>
+            </div>
+
+            <!-- Topic 8 & 9: input & button -->
+            <div class="edu-card">
+                <h3>8 & 9. User Input & Buttons</h3>
+                <p>How users interact with your site.</p>
+                <input type="text" placeholder="Type your name..." class="input-demo">
+                <br> <!-- Topic 10: br (line break) -->
+                <button class="btn-demo">Submit Button</button>
+            </div>
+
+            <!-- Topic 7: img -->
+            <div class="edu-card">
+                <h3>7. Image (img)</h3>
+                <p>Embedding visual content.</p>
+                <img src="Topics.png" alt="Syllabus" style="width: 100%; border-radius: 10px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: THE CSS LABORATORY (Covering all Image 1 Styles) -->
+    <section id="css-lab" class="section dark-bg">
+        <span class="section-tag">Part Two</span>
+        <h2 class="section-title">The CSS Laboratory</h2>
+        
+        <div class="edu-grid">
+            <!-- color & bg-color -->
+            <div class="edu-card">
+                <h3>Color & Background</h3>
+                <p><b>color</b>: Changes text color.</p>
+                <p><b>background-color</b>: Changes the box color.</p>
+                <div class="color-box">This box shows color attributes</div>
+            </div>
+
+            <!-- font-size -->
+            <div class="edu-card">
+                <h3>font-size</h3>
+                <p>Controls the size of your text pixels (px).</p>
+                <p style="font-size: 12px;">12px text</p>
+                <p style="font-size: 24px;">24px text</p>
+                <p style="font-size: 40px;">40px text</p>
+            </div>
+
+            <!-- Margin & Padding -->
+            <div class="edu-card" style="grid-column: span 2;">
+                <h3>Margin vs Padding (Super Detail)</h3>
+                <p><b>Margin</b>: The space <u>OUTSIDE</u> the box (pushes other boxes away).</p>
+                <p><b>Padding</b>: The space <u>INSIDE</u> the box (adds gap between text and border).</p>
+                
+                <div class="margin-padding-visual">
+                    <div class="margin-layer">
+                        <span class="visual-label">MARGIN</span>
+                        <div class="border-layer">
+                            <span class="visual-label">BORDER</span>
+                            <div class="padding-layer">
+                                <span class="visual-label">PADDING</span>
+                                <div class="content-layer">CONTENT</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FLEXBOX MASTERY -->
+    <section id="flexbox-mastery" class="section">
+        <span class="section-tag">Part Three</span>
+        <h2 class="section-title">Flexbox Mastery Guide</h2>
+        <p class="section-desc">Flexbox is the ultimate tool for aligning items horizontally and vertically.</p>
+        
+        <div class="flex-master-grid">
+            <div class="flex-lesson">
+                <h4>1. justify-content: space-between</h4>
+                <p>Items are pushed to the edges with equal space in between.</p>
+                <div class="flex-box-demo f-between">
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                </div>
+            </div>
+
+            <div class="flex-lesson">
+                <h4>2. justify-content: center</h4>
+                <p>Items are grouped together in the absolute middle.</p>
+                <div class="flex-box-demo f-center">
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                </div>
+            </div>
+
+            <div class="flex-lesson">
+                <h4>3. align-items: center</h4>
+                <p>Items are centered vertically (top to bottom).</p>
+                <div class="flex-box-demo f-center" style="height: 100px;">
+                    <div class="item">Vertical Center</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 The Ultimate Encyclopedia of Web Development. Every topic explained!</p>
+    </footer>
+
+</body>
+</html>

@@ -15,7 +15,7 @@ This repository serves as a central hub for my coding journey, featuring structu
 
 | 📂 Directory                 | 📝 Description                                                           |
 | :--------------------------- | :----------------------------------------------------------------------- |
-| **Cohort 3.0**               | Complete journey through 100xDevs Cohort 3.0 (Web2 & Web3). |
+| **Cohort 3.0**               | Complete journey through 100xDevs Cohort 3.0 (Web2 & DevOps). |
 | **Javascript-Chai-Aur-Code** | In-depth JavaScript mastery with Hitesh Choudhary.                       |
 | **Javascript-JSM**           | Advanced concepts from JavaScript Mastery.                               |
 | **Learning-React HuXn**      | Hands-on React.js projects and patterns.                                 |
@@ -44,18 +44,6 @@ Harkirat Singh's **Cohort 3.0** is a rigorous Full Stack & Web3 bootcamp. This r
   - CI/CD Pipelines (GitHub Actions).
   - Kubernetes (K8s), AWS (EC2, S3, ECS).
   - Monitoring: Prometheus, Grafana.
-
-### ⛓️ Track 2: Web3 & Blockchain (Solana & Ethereum)
-- **Web3 Foundations:** Decentralization, Wallets, Key pairs.
-- **Ethereum ecosystem:**
-  - Solidity smart contracts.
-  - Hardhat/Foundry for testing & deployment.
-  - DApps with Ethers.js / Wagmi.
-- **Solana Ecosystem:**
-  - Rust programming language.
-  - Solana Program Library (SPL).
-  - Anchor Framework.
-  - Client-side interaction with Solana.
 
 </details>
 

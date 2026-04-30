@@ -1,24 +1,29 @@
 /* 
-    ================================================================
-    SUPER DETAILED CSS: THE ENCYCLOPEDIA STYLING
-    ================================================================
+   [1] :root SELECTOR
+   The ':root' is a special selector that represents the highest level 
+   of the document. We use it to store "CSS Variables". 
+   Variables start with '--' and they help us reuse the same colors 
+   throughout the whole file without typing them again and again.
 */
-
 :root {
-    --primary: #3b82f6;
-    --secondary: #8b5cf6;
-    --bg-dark: #0f172a;
-    --bg-light: #f8fafc;
-    --text-dark: #1e293b;
-    --text-muted: #64748b;
-    --card-bg: #ffffff;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --primary: #3b82f6;      /* A bright blue color variable */
+    --secondary: #8b5cf6;    /* A soft purple color variable */
+    --bg-dark: #0f172a;      /* A very dark blue for backgrounds */
+    --bg-light: #f8fafc;     /* An off-white color for the page body */
+    --text-dark: #1e293b;    /* A dark grey for headings */
+    --text-muted: #64748b;   /* A medium grey for smaller text */
+    --card-bg: #ffffff;      /* Pure white for boxes/cards */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* A smooth movement speed */
 }
 
 /* 
-   THE BOX MODEL RESET
-   Every element starts with 0 margin and 0 padding.
-   'box-sizing: border-box' ensures padding doesn't break our layout.
+   [2] UNIVERSAL SELECTOR (*)
+   The '*' means "Select every single element on this page".
+   - margin: 0; -> Removes the default outer space browsers add.
+   - padding: 0; -> Removes the default inner space browsers add.
+   - box-sizing: border-box; -> CRITICAL: This makes sure padding 
+     and borders stay INSIDE the width you set. 
+   - font-family: 'Outfit', sans-serif; -> Sets the text style.
 */
 * {
     margin: 0;
@@ -27,6 +32,13 @@
     font-family: 'Outfit', sans-serif;
 }
 
+/* 
+   [3] BODY SELECTOR
+   The 'body' is the main container of your website content.
+   - background-color: var(--bg-light); -> Uses our light grey variable.
+   - color: var(--text-dark); -> Sets the default text color.
+   - line-height: 1.6; -> Adds vertical space between lines of text.
+*/
 body {
     background-color: var(--bg-light);
     color: var(--text-dark);
@@ -34,9 +46,16 @@ body {
 }
 
 /* 
-   FLEXBOX NAVIGATION
-   'display: flex' makes the container flexible.
-   'justify-content: center' centers the inner content.
+   [4] NAVBAR STYLING (FLEXBOX)
+   - display: flex; -> Turns on Flexbox. This allows us to align items.
+   - justify-content: center; -> Moves the inner content to the middle.
+   - background: #ffffff; -> Sets the bar color to white.
+   - padding: 1.5rem 0; -> 1.5rem gap at Top/Bottom, 0 at Left/Right.
+     (1rem is usually 16 pixels).
+   - position: sticky; -> Makes the bar stay at the top when you scroll.
+   - top: 0; -> Sticks it exactly at the 0px mark of the screen top.
+   - z-index: 1000; -> Makes sure the bar stays ON TOP of other content.
+   - box-shadow: 0 4px 6px ...; -> Adds a subtle shadow below the bar.
 */
 .navbar {
     display: flex;
@@ -49,13 +68,27 @@ body {
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
 
+/* 
+   [5] NAV CONTAINER
+   - width: 90%; -> Makes the content take 90% of the screen width.
+   - display: flex; -> Aligns logo and links in a row.
+   - justify-content: space-between; -> Pushes logo to Left, links to Right.
+   - align-items: center; -> Centers them vertically.
+*/
 .nav-container {
     width: 90%;
-    display: flex; /* Flexbox inside navbar */
-    justify-content: space-between; /* Pushes items to edges */
-    align-items: center; /* Centers items vertically */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/* 
+   [6] LOGO & LINKS
+   - .logo { color: var(--primary); } -> Sets logo to blue.
+   - text-decoration: none; -> Removes the underline from <a> tags.
+   - margin-left: 2rem; -> Gap between the navigation links.
+   - transition: var(--transition); -> Makes hover effects look smooth.
+*/
 .logo {
     font-size: 1.5rem;
     font-weight: 900;
@@ -75,8 +108,10 @@ body {
 }
 
 /* 
-   HERO SECTION
-   Using Flexbox to center large headings.
+   [7] HERO SECTION (The Big Banner)
+   - height: 70vh; -> Takes 70% of the screen height.
+   - background: linear-gradient(...); -> A smooth color blend.
+   - flex-direction: column; -> Stack heading and text vertically.
 */
 .hero {
     height: 70vh;
@@ -100,8 +135,12 @@ body {
 }
 
 /* 
-   THE ENCYCLOPEDIA GRID
-   Using CSS Grid to organize our lesson cards.
+   [8] SECTIONS & GRIDS
+   - max-width: 1300px; -> Stops the content from getting too wide.
+   - margin: 0 auto; -> Centers the 1300px box in the middle of the page.
+   - display: grid; -> Turns on Grid Mode (best for card layouts).
+   - grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     -> Automatically makes cards 300px wide and stacks them on mobile.
 */
 .section {
     padding: 100px 5%;
@@ -125,6 +164,12 @@ body {
     gap: 2rem;
 }
 
+/* 
+   [9] EDU CARDS (Individual White Boxes)
+   - background: var(--card-bg); -> White background.
+   - border-radius: 20px; -> Rounded corners.
+   - border: 1px solid #e2e8f0; -> Thin light grey outline.
+*/
 .edu-card {
     background: var(--card-bg);
     padding: 2rem;
@@ -140,21 +185,10 @@ body {
 }
 
 /* 
-   CSS ATTRIBUTE DEMOS
-   Live examples of color, bg-color, font-size.
-*/
-.color-box {
-    color: #ffffff;
-    background-color: var(--primary); /* Topic: background-color */
-    padding: 20px; /* Topic: padding */
-    border: 3px solid #1e40af; /* Topic: border */
-    margin-top: 15px; /* Topic: margin */
-    border-radius: 10px;
-    text-align: center;
-}
-
-/* 
-   SUPER DETAILED BOX MODEL VISUALIZER
+   [10] BOX MODEL VISUALIZER
+   - margin-layer: padding: 50px; -> Creates a gap representing MARGIN.
+   - border-layer: border: 6px solid; -> Creates a real BORDER line.
+   - padding-layer: padding: 50px; -> Creates a gap representing PADDING.
 */
 .margin-padding-visual {
     display: flex;
@@ -164,14 +198,14 @@ body {
 
 .margin-layer {
     background: rgba(59, 130, 246, 0.1);
-    padding: 50px; /* This represents the margin gap */
+    padding: 50px;
     border: 2px dashed var(--primary);
     position: relative;
 }
 
 .border-layer {
-    border: 6px solid var(--text-dark); /* This is the actual border */
-    padding: 50px; /* This represents the padding gap */
+    border: 6px solid var(--text-dark);
+    padding: 50px;
     background: #ffffff;
     position: relative;
 }
@@ -200,16 +234,12 @@ body {
 }
 
 /* 
-   FLEXBOX MASTERY STYLES
+   [11] FLEXBOX DEMO STYLES
+   - f-between: justify-content: space-between; -> Elements to far left/right.
+   - f-center: justify-content: center; -> Elements to the middle.
 */
-.flex-master-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-}
-
 .flex-box-demo {
-    display: flex; /* TOPIC: flexbox */
+    display: flex;
     background: #ffffff;
     padding: 1.5rem;
     border-radius: 15px;
@@ -227,7 +257,12 @@ body {
     font-weight: 600;
 }
 
-/* BUTTONS & INPUTS */
+/* 
+   [12] BUTTONS & INPUTS
+   - cursor: pointer; -> Changes mouse to a 'Hand' icon.
+   - outline: none; -> Removes the ugly focus line when clicking.
+   - transform: translateY(-3px); -> Button moves 3px UP when hovered.
+*/
 .btn-main {
     padding: 1rem 2rem;
     background: var(--primary);
@@ -239,7 +274,10 @@ body {
     transition: var(--transition);
 }
 
-.btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4); }
+.btn-main:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4); 
+}
 
 .input-demo {
     width: 100%;
@@ -249,16 +287,11 @@ body {
     margin-bottom: 10px;
 }
 
-.btn-demo {
-    background: var(--text-dark);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* FOOTER */
+/* 
+   [13] FOOTER
+   - padding: 50px; -> Adds lots of space inside the footer.
+   - background: var(--bg-dark); -> Dark blue background.
+*/
 .footer {
     padding: 50px;
     text-align: center;

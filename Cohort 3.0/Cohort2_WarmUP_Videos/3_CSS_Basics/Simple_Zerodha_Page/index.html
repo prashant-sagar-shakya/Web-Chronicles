@@ -1,0 +1,57 @@
+<!-- Tells the browser this is an HTML5 document -->
+<!DOCTYPE html>
+<!-- Specifies the language is English -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Zerodha</title>
+    <!-- CSS Internal styles -->
+    <style>
+      /* When you hover over an element with the class 'point' */
+      .point:hover {
+        cursor: pointer; /* Changes the mouse cursor to a hand icon */
+        color: blue; /* Changes the text color to blue */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation bar: Uses Flexbox to space items out -->
+    <div style="display:flex; justify-content: space-between; box-shadow: 0px 0.1px 0px gray; padding-top: 22px; padding-bottom:22px ;">
+      <!-- Zerodha Logo -->
+      <img style="margin-left: 200px;" width="130" height="17" src="logo.svg" alt="logo" />
+      
+      <!-- Right side menu links -->
+      <div style="margin-right: 200px; display: flex; gap: 27px; color:gray; font-size: 17px; font-style: normal;" class="point"> 
+        <span>Sign Up</span>
+        <span>About</span>
+        <span>Product</span>
+        <span>Pricing</span>
+        <span>Support</span>
+        <!-- Three bars icon -->
+        <span style="rotate: 90deg"><b><b>|||</b></b></span>
+      </div>
+    </div>
+
+    <!-- Line breaks for extra space -->
+    <br /><br /> <br/>
+
+    <!-- Centered main content -->
+    <center>
+      <!-- Hero image -->
+      <img src="photo.png" alt="Zerodha" width="780" />
+      <br /><br /><br />
+      
+      <!-- Main heading with custom font size and weight -->
+      <h1 style="color: rgb(57, 57, 57); font-weight: 100; font-size: 50px;">Invest in everything</h1>
+      
+      <!-- Subtext paragraph -->
+      <p style="color: rgb(57, 57, 57); font-size: 25px;">Online platform to invest in stocks, derivatives, mutual funds and more</p>
+      <br />
+      
+      <!-- Styled Sign up button -->
+      <button style="background-color: rgb(17, 95, 179); color: white; padding: 10px 20px; border-radius: 5px; border: none; font-size: 20px;">Sign up for free</button>
+    </center>
+  </body>
+</html>
+

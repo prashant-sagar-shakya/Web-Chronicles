@@ -1,0 +1,31 @@
+/* Font styles */
+font {
+  color: #000; /* Sets the text color to black */
+  font-size: 16px; /* Sets the font size to 16 pixels */
+  font-family: Arial, sans-serif; /* Sets the font family to Arial, with a fallback to sans-serif */
+}
+
+/* Background styles */
+div {
+  background-color: #fff; /* Sets the background color to white */
+  background-image: url("image.jpg"); /* Sets the background image to "image.jpg" */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+  background-position: center; /* Centers the background image */
+}
+
+/* Border styles */
+div {
+  border: 1px solid #000; /* Sets a solid black border with a width of 1 pixel */
+  border-radius: 5px; /* Rounds the corners of the border with a radius of 5 pixels */
+}
+
+/* Padding and margin styles */
+div {
+  padding: 10px; /* Adds 10 pixels of padding inside the div */
+  margin: 10px; /* Adds 10 pixels of margin outside the div */
+}
+
+/* Box shadow styles */
+div {
+  box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.75); /* Adds a shadow with a 5px horizontal and vertical offset, 10px blur radius, and 75% opacity */
+}

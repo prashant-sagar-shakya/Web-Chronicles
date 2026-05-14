@@ -1,0 +1,11 @@
+1598863000 INFO Starting application...
+1598863100 INFO Database connected.
+1598863200 ERROR Connection timeout.
+1598863300 INFO Retrying...
+1598863400 ERROR Failed to reach server.
+1598863500 INFO Service running.
+1598863600 INFO User logged in.
+1598863700 ERROR Disk space low.
+1598863800 INFO Monitoring active.
+1598863900 CRITICAL System shutdown initiated.
+1598864000 ERROR Final error before exit.

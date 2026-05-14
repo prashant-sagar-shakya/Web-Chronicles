@@ -1,0 +1,40 @@
+Line 1: Welcome to Bash learning
+Line 2: This is a test file
+Line 3: We will use this for head and tail
+Line 4: One
+Line 5: Two
+Line 6: Three
+Line 7: Four
+Line 8: Five
+Line 9: Six
+Line 10: Seven
+Line 11: Eight
+Line 12: Nine
+Line 13: Ten
+Line 14: Eleven
+Line 15: Twelve
+Line 16: Thirteen
+Line 17: Fourteen
+Line 18: Fifteen
+Line 19: Sixteen
+Line 20: Seventeen
+Line 21: Eighteen
+Line 22: Nineteen
+Line 23: Twenty
+Line 24: Twenty-one
+Line 25: Twenty-two
+Line 26: Twenty-three
+Line 27: Twenty-four
+Line 28: Twenty-five
+Line 29: Twenty-six
+Line 30: Twenty-seven
+Line 31: Twenty-eight
+Line 32: Twenty-nine
+Line 33: Thirty
+one
+one
+one
+phrase match here
+phrase match here
+Phrase Match Here
+Done.

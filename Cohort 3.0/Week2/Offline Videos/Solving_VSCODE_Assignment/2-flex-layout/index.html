@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Layout</title>
+    <!-- Linking an external CSS file if it exists -->
+    <link rel="stylesheet" href="./index.css">
+
+    <style>
+        /* Main container settings */
+        .container {
+            width: 1200px;
+            /* Center the container horizontally */
+            margin: 0 auto;
+            /* 'display: flex' makes the items inside sit side-by-side */
+            display: flex;
+        }
+
+        /* Styling for the left box */
+        .left {
+            background-color: red;
+            /* 'flex-grow: 1' tells this box to take 1 part of the available space */
+            flex-grow: 1;
+        }
+
+        /* Styling for the right box */
+        .right {
+            background-color: blue;
+            /* 'flex-grow: 2' tells this box to take 2 parts of the space (so it's twice as big as the left) */
+            flex-grow: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- The Left block -->
+        <div class="left">
+            <h1>Left</h1>
+        </div>
+        <!-- The Right block -->
+        <div class="right">
+            <h1>Right</h1>
+        </div>
+    </div>
+</body>
+
+</html>

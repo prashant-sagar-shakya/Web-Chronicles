@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical and Horizontal Align</title>
+    <style>
+        /* Main box styling */
+        .container {
+            width: 1200px;
+            /* 'margin: 0 auto' centers the box horizontally on the page */
+            margin: 0 auto;
+            background-color: red;
+        }
+
+        /* Height of the section where we want to align content */
+        .content {
+            height: 500px;
+        }
+
+        /* This class centers content vertically */
+        .vertical-center {
+            /* Using Flexbox */
+            display: flex;
+            /* 'justify-content: center' centers items along the main axis */
+            justify-content: center;
+            /* Make it take the full height of its parent */
+            height: 100%;
+            /* 'column' makes items stack vertically, so justify-content now works vertically */
+            flex-direction: column;
+        }
+
+        /* Simple way to center a block element horizontally */
+        .horizontal-center {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- Yellow box that fills the red box and centers its content vertically -->
+            <div class="vertical-center" style="background-color: yellow;">
+                <div class="horizontal-center">
+                    <!-- Heading text centered both ways -->
+                    <h1>Hello World</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

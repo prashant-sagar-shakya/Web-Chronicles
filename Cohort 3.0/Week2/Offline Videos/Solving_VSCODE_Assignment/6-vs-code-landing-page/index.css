@@ -1,0 +1,224 @@
+/* Global Styles - applies to the whole page */
+body {
+    /* Uses Arial font or any sans-serif font if Arial is missing */
+    font-family: Arial, sans-serif;
+    /* Removes default space around the page */
+    margin: 0;
+    padding: 0;
+    /* Makes sure padding doesn't increase the width of elements */
+    box-sizing: border-box;
+}
+
+/* Default styling for all links */
+a {
+    /* Removes the underline from links */
+    text-decoration: none;
+    /* Sets the link color to a specific blue */
+    color: #0078d4;
+}
+
+/* Styling for the small tagline banner in the hero section */
+.buttonBanner {
+    /* Text color is a light gray */
+    color: #9ba3b4;
+    /* Very transparent white background */
+    background-color: rgba(255,255,255,0.04);
+    /* Space inside the banner */
+    padding: 10px;
+    font-size: 16px;
+    /* Rounded corners to make it look like a pill */
+    border-radius: 32px;
+    /* Thin subtle border */
+    border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* Adds space to the right of the version link in the banner */
+.bannerLink {
+    padding-right: 8px;
+}
+
+/* Main container that centers content and limits width to 1200px */
+.container {
+    display: flex;
+    max-width: 1200px;
+    /* Centers the container horizontally */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Layout for the hero section content */
+.heroContainer {
+    display: flex;
+    /* Pushes text to left and image to right */
+    justify-content: space-between;
+}
+
+/* Aligns text to the left inside hero sub-elements */
+.heroContainer > div {
+    text-align:left;
+}
+
+/* Utility class to make things sit side-by-side using Flexbox */
+.flex {
+    display: flex;
+}
+
+/* Navigation bar container settings */
+.navContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    /* Pushes logo/links to left and search/button to right */
+    justify-content: space-between;
+}
+
+/* Utility class to center items vertically inside a flex box */
+.verticalCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Styling for individual links in the navbar */
+.navLink {
+    /* Space between links */
+    padding-left: 20px;
+    color: gray;
+}
+
+/* Space to the right of the top logo */
+.topImage {
+    padding-right: 12px;
+}
+
+/* Styling for the black announcement banner */
+.banner {
+    padding: 10px;
+    background-color: black;
+    color: gray;
+    font-size: 14px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    /* Centers the text inside the banner */
+    justify-content: center;
+}
+
+/* Change link color to white when mouse is over it */
+.navLink:hover {
+    color: white;
+}
+
+/* Styling for the search input box */
+.searchInput {
+    /* Rounded corners */
+    border-radius: 5px;
+    /* Subtle semi-transparent border */
+    border: 1px solid rgb(255, 255, 255, 0.2);
+    padding: 8px;
+    font-size: 16px;
+    background-color: black;
+    color: white; /* Added color for better visibility */
+}
+
+/* Styling for the blue "Download" button in navbar */
+.downloadButton {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    padding: 7px;
+    width: 120px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+/* Header (Navigation) specific styles */
+header {
+    background-color: black;
+    color: white;
+}
+
+/* Section background color */
+section {
+    background-color: black;
+}
+
+/* Hero Section (Main area) styling */
+.hero {
+    /* Dark gradient background from top to bottom */
+    background: linear-gradient(180deg, #0e0e0e 0%, #141414 100%);
+    color: white;
+    padding: 50px 20px;
+}
+
+/* Big text styling in the hero section */
+.hero h2 {
+    font-size: 3em;
+    margin: 0;
+}
+
+/* Call to Action (CTA) button styling - like "Download for MacOS" */
+.cta-button {
+    display: inline-block;
+    background: #0078d4;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    margin-top: 20px;
+    /* Smooth transition when changing color */
+    transition: background 0.3s;
+}
+
+/* Changes button color to yellow/gold when hovered */
+.cta-button:hover {
+    background: #e5b800;
+}
+
+/* Language section styling */
+.language {
+    color: white;
+}
+
+/* Grid layout for the language section (intro text vs icon panel) */
+.language .container {
+    display: grid;
+    /* Splits into 2 columns: 1 part for text, 2 parts for icons */
+    grid-template-columns: 1fr 2fr;
+    /* Space between columns */
+    column-gap: 2rem;
+}
+
+/* Paragraph styling in language section */
+.language .container p {
+    font-size: 16px;
+    font-weight: 500;
+    /* Increases space between lines for readability */
+    line-height: 160%;
+    color:#9ba3b4;
+}
+
+/* Grid layout for the actual language icons */
+.language .languagePanel {
+    display: grid;
+    /* Splits into 3 equal columns */
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-inline: 2.5rem
+}
+
+/* Keeps language icons at a consistent height */
+.languagePanel img {
+    height: 40px;
+    width: auto;
+}
+
+/* Commented out Responsiveness code - This makes the site look good on mobile */
+/* 
+@media (max-width: 768px) {
+    .heroContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+*/

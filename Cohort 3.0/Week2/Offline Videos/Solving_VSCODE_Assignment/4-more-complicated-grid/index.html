@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complicated Grid Layout</title>
+    <style>
+        /* Outer container that centers everything and defines two main columns */
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            /* Splits the screen: 1 part for red side, 2 parts for blue side */
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+        }
+
+        /* Red background for the left column */
+        .left {
+            background-color: red;
+        }
+
+        /* Blue background for the right column */
+        .right {
+            background-color: blue;
+        }
+
+        /* Class to center things perfectly in the middle (both ways) */
+        .vertical-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        /* Class to center items horizontally */
+        .horizontal-center {
+            margin: 0 auto;
+        }
+
+        /* Nested grid inside the right column */
+        .grid1 {
+            display: grid;
+            /* Splits the right column into 3 equal sub-columns */
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Grid -->
+    <div class="container">
+        <!-- Left Side -->
+        <div class="left">
+            <div>
+                <div class="horizontal-center">
+                    <h1>Left</h1>
+                </div>
+                <div>
+                    <h3>
+                    text text text text text text text text text text text text text
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!-- Right Side -->
+        <div class="right">
+            <!-- Nested Grid with 3 columns -->
+            <div class="grid1">
+                <h2>Col 1</h2>
+                <h2>Col 2</h2>
+                <h2>Col 3</h2>
+                <h2>Col 1</h2>
+                <h2>Col 2</h2>
+                <h2>Col 3</h2>
+                <h2>Col 1</h2>
+                <h2>Col 2</h2>
+                <h2>Col 3</h2>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

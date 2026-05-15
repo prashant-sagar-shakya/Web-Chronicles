@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Sets character encoding to UTF-8 for special characters -->
+    <meta charset="UTF-8">
+    <!-- Makes the page responsive for mobile screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Align</title>
+    <style>
+        /* Styling for the main box (container) */
+        .container {
+            /* Sets a fixed width for the box */
+            width: 1200px;
+            /* background-color makes it easy to see where the box is */
+            background-color: red;
+        }
+
+        /* Styling for the content inside the box */
+        .content {
+            /* Sets a fixed height so we can see the red box properly */
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- This outer div uses Flexbox to center everything horizontally -->
+    <!-- 'display: flex' turns on flex mode, 'justify-content: center' moves items to the middle -->
+    <div style="display: flex; justify-content: center;">
+        <div class="container">
+            <div class="content">
+                <!-- Simple heading text -->
+                <h1>Hello World</h1>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

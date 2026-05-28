@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags for standard browser configurations -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Todo App - DOM Showcase</title>
+</head>
+<body>
+
+  <!-- Heading Title of the Application -->
+  <h1>My Simple Todo App</h1>
+  
+  <!-- Introductory text describing the app's purpose -->
+  <p>Add, complete, or delete tasks using raw DOM manipulation commands.</p>
+
+  <!-- 
+    HTML Form Element: 
+    We use a <form> rather than just a loose input and button because forms naturally 
+    allow the user to press "Enter" inside the text field to submit the task. 
+    We give it a unique ID 'todo-form' so we can fetch it in JavaScript.
+  -->
+  <form id="todo-form">
+    <!-- 
+      Text input field where users type tasks. 
+      ID 'todo-input' is used to target and read the value entered.
+    -->
+    <input type="text" id="todo-input" placeholder="Enter task name...">
+    
+    <!-- 
+      Submit button. Since it is inside a form, clicking it 
+      triggers the form's "submit" event listener.
+    -->
+    <button type="submit">Add Task</button>
+  </form>
+
+  <!-- Subheading for the task list -->
+  <h3>Tasks Checklist:</h3>
+  
+  <!-- 
+    Unordered List (<ul>): 
+    This acts as a placeholder container. 
+    It is currently empty, but JavaScript will dynamically append 
+    new <li> (list item) elements inside it when tasks are submitted.
+  -->
+  <ul id="todo-list">
+    <!-- Dynamic task rows will be inserted here by JavaScript -->
+  </ul>
+
+  <!-- 
+    Embedded JavaScript Script Tag:
+    Consolidates all behavior inside the same file without external dependencies.
+  -->
+  <script>
+    /* 
+      1. DOMContentLoaded Event Listener:
+      This is standard practice. We wrap our entire JavaScript block inside this listener.
+      It ensures that the browser has fully parsed the HTML markup and built the DOM tree 
+      before our JavaScript code tries to search for elements. 
+      Without this, document.getElementById() might run before elements are loaded, returning 'null'.
+    */
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      /*
+        2. SELECTING DOM ELEMENTS (FETCHING PHASE)
+        We use document.getElementById() to search the DOM tree by unique 'id' attributes.
+        This fetches the direct object references of the form, input, and list container 
+        so we can read their properties or bind event listeners to them.
+      */
+      const todoForm = document.getElementById("todo-form"); // Fetches the <form> node
+      const todoInput = document.getElementById("todo-input"); // Fetches the text <input> node
+      const todoList = document.getElementById("todo-list"); // Fetches the container <ul> node
+
+      /*
+        3. CAPTURING EVENTS (INTERCEPTING FORM SUBMISSION)
+        We add a 'submit' listener on the form. 
+        This block triggers whenever the user clicks the "Add Task" button or hits the "Enter" key.
+      */
+      todoForm.addEventListener("submit", function (event) {
+        
+        /*
+          event.preventDefault():
+          This is an extremely crucial DOM method.
+          By default, submitting an HTML form instructs the browser to reload the entire web page.
+          Reloading would clear the browser memory, deleting any tasks we previously added.
+          event.preventDefault() intercepts and stops this default browser reload behavior, 
+          allowing us to process the form values programmatically inside JavaScript.
+        */
+        event.preventDefault();
+
+        /*
+          Reading & Cleaning Input Values:
+          - todoInput.value reads the literal string entered in the text box.
+          - .trim() is a helper method that removes any empty spaces from the beginning and end.
+        */
+        const taskText = todoInput.value.trim();
+
+        /*
+          Simple Form Validation:
+          If the input is empty or contains only spaces, we alert the user 
+          and 'return' early to halt execution before creating elements.
+        */
+        if (taskText === "") {
+          alert("Please type a task description!");
+          return;
+        }
+
+        /*
+          4. CREATING DYNAMIC DOM ELEMENTS (CREATION PHASE)
+          Using document.createElement(), we construct raw HTML nodes directly in-memory.
+          These nodes do not appear on the screen immediately; they exist strictly in memory 
+          until we explicitly append them to a visible parent container.
+        */
+        
+        // Create the list item element (<li>) to house the complete task row
+        const li = document.createElement("li");
+        
+        // Applying inline style to the <li> container using the style property
+        li.style.marginBottom = "10px";
+
+        // Create the checkbox element (<input>)
+        const checkbox = document.createElement("input");
+        // Set the node attribute to change it from a text input to a checkbox
+        checkbox.type = "checkbox";
+        // Apply inline style for clean rendering spacing
+        checkbox.style.marginRight = "8px";
+
+        // Create the text span element (<span>) to hold the task description
+        const taskSpan = document.createElement("span");
+        
+        /*
+          textContent vs innerHTML:
+          We use taskSpan.textContent to insert the task text. 
+          textContent treats any string purely as plain literal text. 
+          If a user enters a tag like "<script>alert('hack')</ script>" (with a closing tag), 
+          textContent safely prints it as normal characters on screen. 
+          Using innerHTML here would parse it as HTML tags, creating severe Cross-Site Scripting (XSS) 
+          security vulnerabilities. Always use textContent for dynamic user-supplied strings!
+        */
+        taskSpan.textContent = taskText; 
+
+        // Create the delete button element (<button>)
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete"; // Set the text of the button
+        
+        // Apply inline style properties to make the button text red and add spacing
+        deleteButton.style.color = "red";
+        deleteButton.style.marginLeft = "12px";
+
+        /*
+          5. BINDING DYNAMIC EVENTS (INTERACTIVE PHASE)
+          Since we are creating elements on the fly, we bind event listeners 
+          directly to these created element variables inside memory before rendering.
+        */
+
+        /*
+          Checkbox Change Listener (Updating Styles):
+          We listen for 'change' events on our checkbox.
+          Whenever a user checks or unchecks the box, this block executes.
+        */
+        checkbox.addEventListener("change", function () {
+          // checkbox.checked returns 'true' if ticked, and 'false' if unticked
+          if (checkbox.checked) {
+            /* 
+              Updating Inline Styles Dynamically:
+              We modify the .style property of our task span.
+              - textDecoration is set to "line-through" to draw a cross line.
+              - color is set to "gray" to make it look completed.
+            */
+            taskSpan.style.textDecoration = "line-through";
+            taskSpan.style.color = "gray";
+          } else {
+            /* 
+              Restoring default inline style values when unchecked.
+              Setting textDecoration back to "none" and color to "black".
+            */
+            taskSpan.style.textDecoration = "none";
+            taskSpan.style.color = "black";
+          }
+        });
+
+        /*
+          Delete Button Click Listener (Deletion Phase):
+          We listen for 'click' events on the dynamic delete button.
+        */
+        deleteButton.addEventListener("click", function () {
+          /*
+            node.remove() method:
+            This is a modern DOM API.
+            It targets the parent <li> container node (which holds the current checkbox, span, and button) 
+            and purges it completely from the HTML document tree. 
+            Once removed, browser memory cleans up and it vanishes from the layout.
+          */
+          li.remove();
+        });
+
+        /*
+          6. ASSEMBLING THE COMPONENT (NESTING PHASE)
+          We use node.appendChild() to connect our raw in-memory elements together.
+          This builds a sub-tree hierarchy in the browser memory.
+          
+          li (Parent Node)
+             ├─── checkbox (First Child Node)
+             ├─── taskSpan (Second Child Node)
+             └─── deleteButton (Third Child Node)
+        */
+        li.appendChild(checkbox);     // Appends checkbox as first child of li
+        li.appendChild(taskSpan);     // Appends span as second child of li
+        li.appendChild(deleteButton); // Appends delete button as third child of li
+
+        /*
+          7. RENDER PHASE (ATTACHING TO LIVE PAGE)
+          Until now, the <li> and its children were only floating in JavaScript memory.
+          By calling todoList.appendChild(li), we attach the assembled <li> node tree 
+          as a child of the visible #todo-list container on the actual page.
+          This immediately renders the new task row onto the user's screen.
+        */
+        todoList.appendChild(li);
+
+        /*
+          Resetting the form input field:
+          We clear the text box value so the user can easily type a new task 
+          without having to manually delete the old text.
+        */
+        todoInput.value = "";
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+<!--
+  ==========================================================================
+  HINGLISH SUMMARY: KYA, KYU, AUR KAISE KAAM KR RHA HAI?
+  ==========================================================================
+
+  1. KYA HAI YE? (What is this?)
+  ------------------------------
+  Ye ek bahut hi basic aur "pure" Todo Application hai. Isme humne external CSS ya 
+  externally stored JavaScript (.js files) ka use nahi kiya hai. Ek single file 
+  "todo.html" ke andar hi saare HTML tags aur JavaScript ke functional DOM logic ko 
+  likha gaya hai.
+
+  2. KYU BANAYA AUR KYU USE KIYA? (Why did we use these concepts?)
+  ---------------------------------------------------------------
+  * document.addEventListener("DOMContentLoaded"):
+    - Kyu kiya? Taaki humara JS code tabhi execute ho jab browser HTML tags ko load karke 
+      ek memory tree (DOM) bana chuka ho. Agar ye use nahi karenge to buttons aur input milenge 
+      hi nahi (null return hoga) aur code error de dega.
+      
+  * event.preventDefault():
+    - Kyu kiya? By default, jab hum HTML form submit karte hain to page reload ho jata hai. 
+      Page reload hote hi humari memory reset ho jati hai aur saare dynamic todos gayab ho jate. 
+      Is reload behavior ko rokne ke liye preventDefault() use kiya hai.
+
+  * document.createElement():
+    - Kyu kiya? Memory me naye HTML tags jaise <li>, <input>, <span>, aur <button> banane ke liye. 
+      Isse hum elements ko dynamic tarike se dynamic data ke sath build kar paate hain.
+
+  * textContent:
+    - Kyu kiya? Security ke liye! textContent user ke input ko raw plain text ki tarah handle krta hai. 
+      Agar user ne html tags ya malicious script enter kiya, to ye use escape kr dega aur code hack hone 
+      se bach jayega. (innerHTML yahan use krna dangerous hota).
+
+  * node.remove():
+    - Kyu kiya? Jab hum Delete button pe click krte hain, to specific <li> block ko screen aur browser 
+      ki DOM tree se bilkul hatane (remove karne) ke liye is modern API ko call kiya hai.
+
+  * node.appendChild():
+    - Kyu kiya? elements ko aapas me jodkar child-parent relationships banane ke liye, jaise <li> ke andar 
+      checkbox, text, aur delete buttons ko insert krna.
+
+
+  3. KAISE KAAM KAR RAHA HAI? (How does it work step-by-step?)
+  -------------------------------------------------------------
+  * Step A (Element Fetching):
+    Browser document load krte hi document.getElementById() ka use karke form (#todo-form), 
+    input (#todo-input) aur list (#todo-list) ka direct reference memory me save kr leta hai.
+
+  * Step B (Form Submission):
+    User input box me kuch likh kar 'Enter' dabata hai ya 'Add Task' click krta hai. Form submission 
+    event trigger hota hai. Hum check krte hain ki text khali to nahi hai.
+
+  * Step C (Memory Node Construction):
+    JavaScript memory me <li> container banata hai, naya checkbox banata hai, <span> me task ka text 
+    set krta hai, aur ek red 'Delete' <button> banata hai.
+
+  * Step D (Event Binding inside Memory):
+    - Checkbox pe 'change' listener lagate hain: Agar checked == true ho, to text ko strike-through aur 
+      gray color me change kr do (.style.textDecoration aur .style.color use krke).
+    - Delete button pe 'click' listener lagate hain: Jab click ho, to current list item (li) ko 
+      li.remove() se permanently delete kr do.
+
+  * Step E (Assembling & Rendering):
+    Hum checkbox, span, aur delete button ko appendChild() krke <li> ke andar fit krte hain. Abhi bhi ye 
+    cheezein screen par nahi dikh rahi hain. Aakhir me hum pure <li> block ko visible container 
+    #todo-list (ul) me appendChild() kr dete hain, jisse wo instant screen par dikhne lagta hai. 
+    Uske baad input field ko clear kr dete hain taaki agla todo type kiya jaa sake.
+  ==========================================================================
+-->

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Manipulation Lab Playground</title>
+  <!-- Clean, readable fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation & Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <h1>DOM Manipulation Lab Playground</h1>
+      <p class="subtitle">Interactive code exercises and live browser DOM tests</p>
+    </div>
+    
+    <nav class="quick-nav">
+      <a href="#fetching-section">Selecting Elements</a>
+      <a href="#updating-section">Updating Elements</a>
+      <a href="#adding-section">Creating & Adding</a>
+      <a href="#deleting-section">Deleting Elements</a>
+      <a href="#complex-section">Complex Operations</a>
+    </nav>
+  </header>
+
+  <!-- Main Document Container -->
+  <main class="app-container">
+
+    <!-- Global Operations Log -->
+    <div class="operation-log-container">
+      <h3>Active Event Feedback Log</h3>
+      <div id="operation-feedback" class="feedback-empty">No actions triggered yet. Interact with the exercises below to see events.</div>
+    </div>
+
+    <!-- Section 1: Fetching / Selecting Elements -->
+    <section id="fetching-section" class="lab-section">
+      <h2>1. Selecting (Fetching) Elements</h2>
+      <p class="section-description">
+        Before manipulating elements, JavaScript must fetch them. This section demonstrates querySelector and legacy ID selections.
+      </p>
+
+      <div class="section-grid">
+        <!-- Target Sandbox -->
+        <div class="sandbox-column">
+          <h3>Target HTML Sandbox</h3>
+          <div id="sandbox-fetching" class="sandbox-area">
+            <h4 id="fetching-title">Target Heading Element</h4>
+            <p class="fetching-paragraph">This is a paragraph with class 'fetching-paragraph'.</p>
+            <div class="fetching-item active-item" data-id="1">List Item One (Active Class)</div>
+            <div class="fetching-item" data-id="2">List Item Two</div>
+            <div class="fetching-item" data-id="3">List Item Three</div>
+          </div>
+        </div>
+
+        <!-- Controls & Output Code -->
+        <div class="controls-column">
+          <h3>Operations</h3>
+          <div class="button-list">
+            <button id="btn-fetch-id" class="control-btn">document.getElementById("fetching-title")</button>
+            <button id="btn-fetch-class" class="control-btn">document.querySelector(".fetching-paragraph")</button>
+            <button id="btn-fetch-active" class="control-btn">document.querySelector(".fetching-item.active-item")</button>
+            <button id="btn-fetch-all" class="control-btn">document.querySelectorAll(".fetching-item")</button>
+          </div>
+
+          <div class="code-box">
+            <div class="code-header">Executing JavaScript Code</div>
+            <pre><code id="code-fetching">// Select an operation button above to inspect JavaScript code.</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Updating Elements -->
+    <section id="updating-section" class="lab-section">
+      <h2>2. Updating Elements</h2>
+      <p class="section-description">
+        Change text nodes safely with textContent, insert HTML with innerHTML, alter styles inline, or toggle stylesheet classes.
+      </p>
+
+      <div class="section-grid">
+        <!-- Target Sandbox -->
+        <div class="sandbox-column">
+          <h3>Target HTML Sandbox</h3>
+          <div class="sandbox-area flex-center">
+            <div id="showcase-box" class="showcase-element">
+              <span id="showcase-text">Default State</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-column">
+          <h3>Operations</h3>
+          
+          <div class="form-row">
+            <label for="input-text-update">Text Value:</label>
+            <div class="input-group">
+              <input type="text" id="input-text-update" value="Hello, dynamic world!">
+              <button id="btn-update-text" class="action-btn">textContent</button>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="input-html-update">HTML Value:</label>
+            <div class="input-group">
+              <input type="text" id="input-html-update" value="Parsed <strong>bold tag</strong> here.">
+              <button id="btn-update-html" class="action-btn">innerHTML</button>
+            </div>
+          </div>
+
+          <div class="button-list-horizontal">
+            <button id="btn-toggle-class" class="control-btn">classList.toggle("neon-border")</button>
+            <button id="btn-update-style" class="control-btn">style.backgroundColor = "lightgrey"</button>
+            <button id="btn-reset-updating" class="control-btn reset-btn">Reset Showcase</button>
+          </div>
+
+          <div class="code-box">
+            <div class="code-header">Executing JavaScript Code</div>
+            <pre><code id="code-updating">// Select an operation button above to inspect JavaScript code.</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Adding Elements -->
+    <section id="adding-section" class="lab-section">
+      <h2>3. Creating and Adding Elements</h2>
+      <p class="section-description">
+        Assemble elements using document.createElement() in memory, configure properties, and insert into the DOM tree.
+      </p>
+
+      <div class="section-grid">
+        <!-- Target Sandbox -->
+        <div class="sandbox-column">
+          <h3>Target HTML Sandbox</h3>
+          <div class="sandbox-area">
+            <div id="feed-container" class="item-feed">
+              <div class="feed-placeholder">Feed is currently empty. Add cards below.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-column">
+          <h3>Operations</h3>
+
+          <div class="form-row">
+            <label for="input-add-text">Item Content Text:</label>
+            <input type="text" id="input-add-text" value="Dynamic dynamic card item text content" class="wide-input">
+          </div>
+
+          <div class="form-row">
+            <label for="select-add-type">Item Theme Style Class:</label>
+            <select id="select-add-type" class="wide-select">
+              <option value="default">Default Card Style</option>
+              <option value="accent">Accent Highlight Style</option>
+            </select>
+          </div>
+
+          <div class="button-list-horizontal">
+            <button id="btn-add-append" class="action-btn">feed.appendChild(newCard)</button>
+            <button id="btn-add-prepend" class="action-btn">feed.prepend(newCard)</button>
+            <button id="btn-clear-feed" class="control-btn reset-btn">Clear Dynamic Feed</button>
+          </div>
+
+          <div class="code-box">
+            <div class="code-header">Executing JavaScript Code</div>
+            <pre><code id="code-adding">// Select an operation button above to inspect JavaScript code.</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Deleting Elements -->
+    <section id="deleting-section" class="lab-section">
+      <h2>4. Deleting Elements</h2>
+      <p class="section-description">
+        Delete elements directly using element.remove() or by navigating to parent nodes and calling parentElement.removeChild(childNode).
+      </p>
+
+      <div class="section-grid">
+        <!-- Target Sandbox -->
+        <div class="sandbox-column">
+          <h3>Target HTML Sandbox (Inbox List)</h3>
+          <div class="sandbox-area">
+            <div id="inbox-container" class="item-list">
+              <div class="inbox-item" id="msg-1">
+                <span class="inbox-text">Message index 1: Account setup verification prompt</span>
+                <button class="delete-btn">Delete</button>
+              </div>
+              <div class="inbox-item" id="msg-2">
+                <span class="inbox-text">Message index 2: Dynamic DOM system configuration updates</span>
+                <button class="delete-btn">Delete</button>
+              </div>
+              <div class="inbox-item" id="msg-3">
+                <span class="inbox-text">Message index 3: Scheduled maintenance information logs</span>
+                <button class="delete-btn">Delete</button>
+              </div>
+            </div>
+            <button id="btn-repopulate-inbox" class="control-btn" style="margin-top: 15px; width: 100%;">Restore Initial Message List</button>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-column">
+          <h3>Operations</h3>
+          <p class="sub-description">
+            To test Event Delegation, click the "Delete" buttons inside individual inbox rows. The deletion uses a single listener on the parent container. Or use the manual operations below:
+          </p>
+
+          <div class="button-list-horizontal">
+            <button id="btn-delete-first" class="action-btn">Delete First Item (first.remove)</button>
+            <button id="btn-delete-last-legacy" class="action-btn">Delete Last Item (removeChild)</button>
+          </div>
+
+          <div class="code-box">
+            <div class="code-header">Executing JavaScript Code</div>
+            <pre><code id="code-deleting">// Click any delete buttons to inspect executing JavaScript.</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: More Complex Elements & Forms -->
+    <section id="complex-section" class="lab-section">
+      <h2>5. Advanced Complex Elements</h2>
+      <p class="section-description">
+        Manage forms without page reloads, append table rows dynamically, and clone template designs using HTML templates.
+      </p>
+
+      <!-- Sub-section A: Tables -->
+      <div class="complex-subsection">
+        <h3>5A. Dynamic Tables</h3>
+        <div class="section-grid">
+          <div class="sandbox-column">
+            <div class="sandbox-area">
+              <table id="directory-table" class="simple-table">
+                <thead>
+                  <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>User Role</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Prashant Shakya</td>
+                    <td>Lead Developer</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="controls-column">
+            <div class="form-row">
+              <label for="table-user-name">User Name:</label>
+              <input type="text" id="table-user-name" value="Alice Vance" class="wide-input">
+            </div>
+            <div class="form-row">
+              <label for="table-user-role">User Role:</label>
+              <input type="text" id="table-user-role" value="Software Architect" class="wide-input">
+            </div>
+            <button id="btn-add-table-row" class="action-btn" style="width: 100%;">Create and Insert New Table Row</button>
+
+            <div class="code-box" style="margin-top: 15px;">
+              <div class="code-header">Executing JavaScript Code</div>
+              <pre><code id="code-complex-table">// Table row addition JavaScript code displays here.</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section B: Forms -->
+      <div class="complex-subsection">
+        <h3>5B. Form Event Prevention (preventDefault)</h3>
+        <div class="section-grid">
+          <div class="sandbox-column">
+            <div class="sandbox-area">
+              <form id="sandbox-form" class="simple-form">
+                <div class="form-row">
+                  <label for="form-username">User Name ID:</label>
+                  <input type="text" id="form-username" name="username" placeholder="dev_account" required>
+                </div>
+                <div class="form-row">
+                  <label for="form-email">User Email Address:</label>
+                  <input type="email" id="form-email" name="useremail" placeholder="dev@example.com" required>
+                </div>
+                <button type="submit" class="action-btn" style="width: 100%;">Submit Form Intercepted</button>
+              </form>
+            </div>
+          </div>
+          
+          <div class="controls-column">
+            <p class="sub-description">
+              Form submit events typically reload the entire document. Capturing the event and executing <code>event.preventDefault()</code> stops the reload, allowing JavaScript to capture values programmatically.
+            </p>
+            <div class="code-box">
+              <div class="code-header">Executing JavaScript Code</div>
+              <pre><code id="code-complex-form">// Submit form to see preventing default behavior details.</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section C: HTML Templates -->
+      <div class="complex-subsection">
+        <h3>5C. Cloning HTML Blueprint Templates</h3>
+        <div class="section-grid">
+          <div class="sandbox-column">
+            <div class="sandbox-area">
+              <div id="cloned-cards-container" class="card-grid">
+                <div class="template-placeholder">Template grid container is empty. Instantiate nodes below.</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="controls-column">
+            <p class="sub-description">
+              HTML templates represent blocks of markup that browser engines parse but do not display on loading. Using JavaScript, we duplicate their structure and fill in content values.
+            </p>
+            
+            <div class="button-list-horizontal">
+              <button id="btn-clone-developer" class="action-btn">Instantiate Developer Profile</button>
+              <button id="btn-clone-designer" class="action-btn">Instantiate Designer Profile</button>
+              <button id="btn-clear-cloned" class="control-btn reset-btn">Clear Instantiated Cards</button>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">Executing JavaScript Code</div>
+              <pre><code id="code-complex-template">// Template deep cloning JavaScript displays here.</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- HTML Templates blueprints (Non-rendered markup) -->
+  <template id="card-blueprint">
+    <div class="blueprint-card">
+      <div class="blueprint-badge">Profile Component blueprint</div>
+      <h4 class="bp-name">Full Name Label</h4>
+      <p class="bp-role">Role Description Label</p>
+    </div>
+  </template>
+
+  <!-- Standard Event Logger utility script -->
+  <script>
+    /**
+     * Logger utility to print feedback messages to the document page.
+     * Keeps track of triggered JS operations clearly for educational purposes.
+     */
+    function logToPlaygroundConsole(message, status = 'default') {
+      const feedbackBox = document.getElementById('operation-feedback');
+      
+      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      
+      feedbackBox.className = `feedback-active ${status}`;
+      feedbackBox.textContent = `[${time}] [status: ${status}] ${message}`;
+    }
+  </script>
+
+  <!-- Unified JavaScript Demos -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      // =========================================================================
+      // 1. SELECTING (FETCHING) ELEMENTS
+      // =========================================================================
+      
+      // Helper function to remove selection highlight borders from all items in the sandbox
+      function clearSandboxHighlights() {
+        const elements = document.querySelectorAll("#sandbox-fetching *");
+        elements.forEach(function (el) {
+          el.classList.remove("highlight-border-blue");
+        });
+      }
+
+      // Selecting a single element by its ID attribute
+      document.getElementById("btn-fetch-id").addEventListener("click", function () {
+        clearSandboxHighlights();
+        const titleElement = document.getElementById("fetching-title");
+
+        if (titleElement) {
+          titleElement.classList.add("highlight-border-blue");
+          logToPlaygroundConsole(
+            "getElementById('fetching-title') executed. Tag: " +
+              titleElement.tagName +
+              ", Text: '" +
+              titleElement.textContent +
+              "'",
+            "success",
+          );
+        }
+
+        document.getElementById("code-fetching").textContent =
+          `// 1. Fetching a single element by ID
+const title = document.getElementById("fetching-title");
+title.classList.add("highlight-border-blue");`;
+      });
+
+      // Selecting a single element using CSS Class selector
+      document.getElementById("btn-fetch-class").addEventListener("click", function () {
+        clearSandboxHighlights();
+        const paragraph = document.querySelector(".fetching-paragraph");
+
+        if (paragraph) {
+          paragraph.classList.add("highlight-border-blue");
+          logToPlaygroundConsole(
+            "querySelector('.fetching-paragraph') executed. Class: " +
+              paragraph.className,
+            "success",
+          );
+        }
+
+        document.getElementById("code-fetching").textContent =
+          `// 2. Fetching by CSS Class using querySelector
+const paragraph = document.querySelector(".fetching-paragraph");
+paragraph.classList.add("highlight-border-blue");`;
+      });
+
+      // Selecting using complex nested CSS queries
+      document.getElementById("btn-fetch-active").addEventListener("click", function () {
+        clearSandboxHighlights();
+        const activeItem = document.querySelector(".fetching-item.active-item");
+
+        if (activeItem) {
+          activeItem.classList.add("highlight-border-blue");
+          const dataId = activeItem.getAttribute("data-id");
+          logToPlaygroundConsole(
+            "querySelector('.fetching-item.active-item') executed. Data-ID: " +
+              dataId,
+            "success",
+          );
+        }
+
+        document.getElementById("code-fetching").textContent =
+          `// 3. Complex compound CSS selector queries
+const activeItem = document.querySelector(".fetching-item.active-item");
+activeItem.classList.add("highlight-border-blue");
+const dataId = activeItem.getAttribute("data-id");`;
+      });
+
+      // Selecting ALL elements matching a query
+      document.getElementById("btn-fetch-all").addEventListener("click", function () {
+        clearSandboxHighlights();
+        const allItems = document.querySelectorAll(".fetching-item");
+
+        allItems.forEach(function (item) {
+          item.classList.add("highlight-border-blue");
+        });
+
+        logToPlaygroundConsole(
+          "querySelectorAll('.fetching-item') executed. Selected: " +
+            allItems.length +
+            " elements.",
+          "success",
+        );
+
+        document.getElementById("code-fetching").textContent =
+          `// 4. Selecting all matching elements (querySelectorAll)
+const allItems = document.querySelectorAll(".fetching-item");
+allItems.forEach(function(item) {
+  item.classList.add("highlight-border-blue");
+});`;
+      });
+
+
+      // =========================================================================
+      // 2. UPDATING ELEMENTS
+      // =========================================================================
+      
+      const showcaseBox = document.getElementById("showcase-box");
+      const showcaseText = document.getElementById("showcase-text");
+      const textInput = document.getElementById("input-text-update");
+      const htmlInput = document.getElementById("input-html-update");
+      const codeBoxUpdating = document.getElementById("code-updating");
+
+      // Updating Text Safely using textContent
+      document.getElementById("btn-update-text").addEventListener("click", function () {
+        const newTextValue = textInput.value.trim();
+
+        if (newTextValue === "") {
+          logToPlaygroundConsole("Text input cannot be empty.", "warning");
+          return;
+        }
+
+        showcaseText.textContent = newTextValue;
+        logToPlaygroundConsole("Updated textContent to: " + newTextValue, "success");
+
+        codeBoxUpdating.textContent = `// 1. Updating text safely (textContent ignores HTML tags)
+const showcaseText = document.getElementById("showcase-text");
+showcaseText.textContent = "${newTextValue}";`;
+      });
+
+      // Updating Inner HTML using innerHTML
+      document.getElementById("btn-update-html").addEventListener("click", function () {
+        const newHtmlValue = htmlInput.value.trim();
+
+        if (newHtmlValue === "") {
+          logToPlaygroundConsole("HTML input cannot be empty.", "warning");
+          return;
+        }
+
+        showcaseText.innerHTML = newHtmlValue;
+        logToPlaygroundConsole("Updated innerHTML dynamically.", "success");
+
+        codeBoxUpdating.textContent = `// 2. Rendering HTML tags inside elements
+const showcaseText = document.getElementById("showcase-text");
+showcaseText.innerHTML = "${newHtmlValue}";`;
+      });
+
+      // Toggling CSS Classes using classList.toggle()
+      document.getElementById("btn-toggle-class").addEventListener("click", function () {
+        const isClassAdded = showcaseBox.classList.toggle("neon-border");
+        logToPlaygroundConsole("Toggled class 'neon-border'. Status: " + isClassAdded, "success");
+
+        codeBoxUpdating.textContent = `// 3. Modifying class assignments dynamically
+const showcaseBox = document.getElementById("showcase-box");
+const hasClass = showcaseBox.classList.toggle("neon-border");`;
+      });
+
+      // Updating Inline Styles directly
+      document.getElementById("btn-update-style").addEventListener("click", function () {
+        showcaseBox.style.backgroundColor = "#e2e8f0";
+        showcaseBox.style.borderRadius = "12px";
+        logToPlaygroundConsole("Applied inline CSS style updates directly.", "success");
+
+        codeBoxUpdating.textContent = `// 4. Modifying inline CSS styles directly
+const showcaseBox = document.getElementById("showcase-box");
+showcaseBox.style.backgroundColor = "#e2e8f0";
+showcaseBox.style.borderRadius = "12px";`;
+      });
+
+      // Resetting Showcase back to default baseline values
+      document.getElementById("btn-reset-updating").addEventListener("click", function () {
+        showcaseText.textContent = "Default State";
+        showcaseBox.className = "showcase-element";
+        showcaseBox.style.backgroundColor = "";
+        showcaseBox.style.borderRadius = "";
+        logToPlaygroundConsole("Showcase reset to baseline defaults.", "default");
+
+        codeBoxUpdating.textContent = `// 5. Resetting styles, classes, and contents
+const showcaseBox = document.getElementById("showcase-box");
+const showcaseText = document.getElementById("showcase-text");
+showcaseText.textContent = "Default State";
+showcaseBox.className = "showcase-element";
+showcaseBox.style.backgroundColor = "";
+showcaseBox.style.borderRadius = "";`;
+      });
+
+
+      // =========================================================================
+      // 3. CREATING AND ADDING ELEMENTS
+      // =========================================================================
+      
+      const feedContainer = document.getElementById("feed-container");
+      const addTextInput = document.getElementById("input-add-text");
+      const addTypeSelect = document.getElementById("select-add-type");
+      const codeBoxAdding = document.getElementById("code-adding");
+
+      function removePlaceholderIfPresent() {
+        const placeholder = feedContainer.querySelector(".feed-placeholder");
+        if (placeholder) {
+          placeholder.remove();
+        }
+      }
+
+      function createCardElement(textValue, themeClass) {
+        const cardNode = document.createElement("div");
+        cardNode.className = "dynamic-card card-" + themeClass;
+        cardNode.textContent = textValue;
+        return cardNode;
+      }
+
+      // Appending Elements using parent.appendChild(child)
+      document.getElementById("btn-add-append").addEventListener("click", function () {
+        const text = addTextInput.value.trim();
+        const theme = addTypeSelect.value;
+
+        if (text === "") {
+          logToPlaygroundConsole("Card text content cannot be blank.", "warning");
+          return;
+        }
+
+        removePlaceholderIfPresent();
+        const newCard = createCardElement(text, theme);
+        feedContainer.appendChild(newCard);
+        feedContainer.scrollTop = feedContainer.scrollHeight;
+
+        logToPlaygroundConsole("Appended element card using appendChild()", "success");
+
+        codeBoxAdding.textContent = `// 1. Creating and appending elements (Pipeline)
+const feed = document.getElementById("feed-container");
+const newCard = document.createElement("div");
+newCard.className = "dynamic-card card-${theme}";
+newCard.textContent = "${text}";
+feed.appendChild(newCard);`;
+      });
+
+      // Prepends Elements using parent.prepend(child)
+      document.getElementById("btn-add-prepend").addEventListener("click", function () {
+        const text = addTextInput.value.trim();
+        const theme = addTypeSelect.value;
+
+        if (text === "") {
+          logToPlaygroundConsole("Card text content cannot be blank.", "warning");
+          return;
+        }
+
+        removePlaceholderIfPresent();
+        const newCard = createCardElement(text, theme);
+        feedContainer.prepend(newCard);
+        feedContainer.scrollTop = 0;
+
+        logToPlaygroundConsole("Prepended element card using prepend()", "success");
+
+        codeBoxAdding.textContent = `// 2. Creating and prepending elements (Pipeline)
+const feed = document.getElementById("feed-container");
+const newCard = document.createElement("div");
+newCard.className = "dynamic-card card-${theme}";
+newCard.textContent = "${text}";
+feed.prepend(newCard);`;
+      });
+
+      // Wiping container dynamic list and resetting placeholder elements
+      document.getElementById("btn-clear-feed").addEventListener("click", function () {
+        feedContainer.innerHTML = "";
+        const placeholder = document.createElement("div");
+        placeholder.className = "feed-placeholder";
+        placeholder.textContent = "Feed is currently empty. Add cards below.";
+        feedContainer.appendChild(placeholder);
+
+        logToPlaygroundConsole("Cleared feed container sandbox.", "default");
+
+        codeBoxAdding.textContent = `// 3. Wiping elements by resetting HTML content
+const feed = document.getElementById("feed-container");
+feed.innerHTML = "";
+const placeholder = document.createElement("div");
+placeholder.className = "feed-placeholder";
+placeholder.textContent = "Feed is currently empty...";
+feed.appendChild(placeholder);`;
+      });
+
+
+      // =========================================================================
+      // 4. DELETING ELEMENTS
+      // =========================================================================
+      
+      const inboxContainer = document.getElementById("inbox-container");
+      const codeBoxDeleting = document.getElementById("code-deleting");
+
+      // Event Delegation
+      inboxContainer.addEventListener("click", function (event) {
+        const deleteButton = event.target.closest(".delete-btn");
+
+        if (deleteButton) {
+          const inboxItem = deleteButton.closest(".inbox-item");
+
+          if (inboxItem) {
+            const messageText = inboxItem.querySelector(".inbox-text").textContent;
+            inboxItem.remove();
+
+            logToPlaygroundConsole("Deleted item via Event Delegation: '" + messageText + "'", "danger");
+
+            if (inboxContainer.children.length === 0) {
+              logToPlaygroundConsole("All messages deleted. Inbox is empty.", "warning");
+            }
+
+            codeBoxDeleting.textContent = `// 1. Efficient Deletion using Event Delegation
+const inbox = document.getElementById("inbox-container");
+inbox.addEventListener("click", function(event) {
+  const deleteBtn = event.target.closest(".delete-btn");
+  if (deleteBtn) {
+    const item = deleteBtn.closest(".inbox-item");
+    item.remove();
+  }
+});`;
+          }
+        }
+      });
+
+      // Modern Direct Self Deletion: element.remove()
+      document.getElementById("btn-delete-first").addEventListener("click", function () {
+        const firstItem = inboxContainer.querySelector(".inbox-item");
+
+        if (!firstItem) {
+          logToPlaygroundConsole("No messages remaining to delete.", "warning");
+          return;
+        }
+
+        const text = firstItem.querySelector(".inbox-text").textContent;
+        firstItem.remove();
+
+        logToPlaygroundConsole("Deleted first item: '" + text + "' using element.remove()", "danger");
+
+        codeBoxDeleting.textContent = `// 2. Direct element self-deletion (Modern .remove())
+const inbox = document.getElementById("inbox-container");
+const firstItem = inbox.querySelector(".inbox-item");
+if (firstItem) {
+  firstItem.remove();
+}`;
+      });
+
+      // Traditional Tree Deletion: parentElement.removeChild(childNode)
+      document.getElementById("btn-delete-last-legacy").addEventListener("click", function () {
+        const items = inboxContainer.querySelectorAll(".inbox-item");
+
+        if (items.length === 0) {
+          logToPlaygroundConsole("No messages remaining to delete.", "warning");
+          return;
+        }
+
+        const lastItem = items[items.length - 1];
+        const text = lastItem.querySelector(".inbox-text").textContent;
+        inboxContainer.removeChild(lastItem);
+
+        logToPlaygroundConsole("Deleted last item: '" + text + "' using parent.removeChild()", "danger");
+
+        codeBoxDeleting.textContent = `// 3. Traditional parent-child deletion (removeChild)
+const inbox = document.getElementById("inbox-container");
+const items = inbox.querySelectorAll(".inbox-item");
+if (items.length > 0) {
+  const lastItem = items[items.length - 1];
+  inbox.removeChild(lastItem);
+}`;
+      });
+
+      // Repopulating elements to reset exercise sandbox
+      document.getElementById("btn-repopulate-inbox").addEventListener("click", function () {
+        inboxContainer.innerHTML = "";
+
+        const sampleMessages = [
+          { text: "Message index 1: Account setup verification prompt" },
+          { text: "Message index 2: Dynamic DOM system configuration updates" },
+          { text: "Message index 3: Scheduled maintenance information logs" },
+        ];
+
+        sampleMessages.forEach(function (msg, index) {
+          const item = document.createElement("div");
+          item.className = "inbox-item";
+          item.id = "msg-" + (index + 1);
+
+          const span = document.createElement("span");
+          span.className = "inbox-text";
+          span.textContent = msg.text;
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.className = "delete-btn";
+          deleteBtn.textContent = "Delete";
+
+          item.append(span, deleteBtn);
+          inboxContainer.appendChild(item);
+        });
+
+        logToPlaygroundConsole("Restored inbox list rows to default states.", "default");
+
+        codeBoxDeleting.textContent = `// 4. Restoring data list structure dynamically
+const inbox = document.getElementById("inbox-container");
+inbox.innerHTML = "";
+// (Loop and create new rows using standard appendChild pipeline rules)`;
+      });
+
+
+      // =========================================================================
+      // 5. ADVANCED COMPLEX OPERATIONS
+      // =========================================================================
+      
+      const directoryTableBody = document.querySelector("#directory-table tbody");
+      const nameInputField = document.getElementById("table-user-name");
+      const roleInputField = document.getElementById("table-user-role");
+      const codeBoxTable = document.getElementById("code-complex-table");
+
+      let incrementalUserId = 2;
+
+      document.getElementById("btn-add-table-row").addEventListener("click", function () {
+        const userName = nameInputField.value.trim();
+        const userRole = roleInputField.value.trim();
+
+        if (userName === "" || userRole === "") {
+          logToPlaygroundConsole("Table input fields cannot be empty.", "warning");
+          return;
+        }
+
+        const newRow = document.createElement("tr");
+
+        const cellId = document.createElement("td");
+        cellId.textContent = incrementalUserId++;
+
+        const cellName = document.createElement("td");
+        cellName.textContent = userName;
+
+        const cellRole = document.createElement("td");
+        cellRole.textContent = userRole;
+
+        newRow.append(cellId, cellName, cellRole);
+        directoryTableBody.appendChild(newRow);
+
+        nameInputField.value = "";
+        roleInputField.value = "";
+
+        logToPlaygroundConsole("Appended row for user: '" + userName + "' into table.", "success");
+
+        codeBoxTable.textContent = `// 1. Appending dynamic table rows programmatically
+const tbody = document.querySelector("#directory-table tbody");
+const tr = document.createElement("tr");
+const tdId = document.createElement("td");
+const tdName = document.createElement("td");
+const tdRole = document.createElement("td");
+tdId.textContent = "${incrementalUserId - 1}";
+tdName.textContent = "${userName}";
+tdRole.textContent = "${userRole}";
+tr.append(tdId, tdName, tdRole);
+tbody.appendChild(tr);`;
+      });
+
+      // Intercepting Form Submissions (preventDefault)
+      const formElement = document.getElementById("sandbox-form");
+      const codeBoxForm = document.getElementById("code-complex-form");
+
+      formElement.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formParameters = new FormData(formElement);
+        const enteredUsername = formParameters.get("username");
+        const enteredEmail = formParameters.get("useremail");
+
+        logToPlaygroundConsole("Captured submission safely. User: '" + enteredUsername + "', Email: '" + enteredEmail + "'", "success");
+
+        codeBoxForm.textContent = `// 2. Intercepting form events and preventing page reloads
+const form = document.getElementById("sandbox-form");
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); 
+  const data = new FormData(form);
+  const username = data.get("username");
+  const email = data.get("useremail");
+  console.log("Captured inputs safely in JS: " + username + " (" + email + ")");
+});`;
+      });
+
+      // Cloning HTML Templates (<template> tags)
+      const clonedContainer = document.getElementById("cloned-cards-container");
+      const cardBlueprint = document.getElementById("card-blueprint");
+      const codeBoxTemplate = document.getElementById("code-complex-template");
+
+      function cloneAndInstantiateBlueprint(nameValue, roleValue) {
+        const placeholder = clonedContainer.querySelector(".template-placeholder");
+        if (placeholder) {
+          placeholder.remove();
+        }
+
+        const blueprintContent = cardBlueprint.content;
+        const templateClone = blueprintContent.cloneNode(true);
+
+        templateClone.querySelector(".bp-name").textContent = nameValue;
+        templateClone.querySelector(".bp-role").textContent = roleValue;
+
+        clonedContainer.appendChild(templateClone);
+        clonedContainer.scrollTop = clonedContainer.scrollHeight;
+
+        logToPlaygroundConsole("Instantiated card template blueprint for: '" + nameValue + "'", "success");
+      }
+
+      document.getElementById("btn-clone-developer").addEventListener("click", function () {
+        cloneAndInstantiateBlueprint("Alice Vance", "Senior Full-Stack Engineer");
+
+        codeBoxTemplate.textContent = `// 3. Instantiating HTML <template> elements
+const template = document.getElementById("card-blueprint");
+const container = document.getElementById("cloned-cards-container");
+const clone = template.content.cloneNode(true);
+clone.querySelector(".bp-name").textContent = "Alice Vance";
+clone.querySelector(".bp-role").textContent = "Senior Full-Stack Engineer";
+container.appendChild(clone);`;
+      });
+
+      document.getElementById("btn-clone-designer").addEventListener("click", function () {
+        cloneAndInstantiateBlueprint("Dianne Ross", "Lead UX Design Architect");
+
+        codeBoxTemplate.textContent = `// 3. Instantiating HTML <template> elements
+const template = document.getElementById("card-blueprint");
+const container = document.getElementById("cloned-cards-container");
+const clone = template.content.cloneNode(true);
+clone.querySelector(".bp-name").textContent = "Dianne Ross";
+clone.querySelector(".bp-role").textContent = "Lead UX Design Architect";
+container.appendChild(clone);`;
+      });
+
+      // Clear dynamic clones
+      document.getElementById("btn-clear-cloned").addEventListener("click", function () {
+        clonedContainer.innerHTML = "";
+
+        const emptyText = document.createElement("div");
+        emptyText.className = "template-placeholder";
+        emptyText.textContent = "Template grid container is empty. Instantiate nodes below.";
+        clonedContainer.appendChild(emptyText);
+
+        logToPlaygroundConsole("Cleared cloned blueprint cards.", "default");
+
+        codeBoxTemplate.textContent = `// Clearing instantiated template nodes
+const container = document.getElementById("cloned-cards-container");
+container.innerHTML = "";`;
+      });
+
+    });
+  </script>
+</body>
+</html>

@@ -1,8 +1,8 @@
-# ⚡ Data Chronicles
+# ⚡ Web Chronicles
 
-[![GitHub License](https://img.shields.io/github/license/prashant-sagar-shakya/Data-Chronicles?style=for-the-badge&color=blue)](https://github.com/prashant-sagar-shakya/Data-Chronicles/blob/main/LICENSE)
-[![Repo Size](https://img.shields.io/github/repo-size/prashant-sagar-shakya/Data-Chronicles?style=for-the-badge&color=green)](https://github.com/prashant-sagar-shakya/Data-Chronicles)
-[![Last Commit](https://img.shields.io/github/last-commit/prashant-sagar-shakya/Data-Chronicles?style=for-the-badge&color=orange)](https://github.com/prashant-sagar-shakya/Data-Chronicles/commits/main)
+[![GitHub License](https://img.shields.io/github/license/prashant-sagar-shakya/Web-Chronicles?style=for-the-badge&color=blue)](https://github.com/prashant-sagar-shakya/Web-Chronicles/blob/main/LICENSE)
+[![Repo Size](https://img.shields.io/github/repo-size/prashant-sagar-shakya/Web-Chronicles?style=for-the-badge&color=green)](https://github.com/prashant-sagar-shakya/Web-Chronicles)
+[![Last Commit](https://img.shields.io/github/last-commit/prashant-sagar-shakya/Web-Chronicles?style=for-the-badge&color=orange)](https://github.com/prashant-sagar-shakya/Web-Chronicles/commits/main)
 [![100xDevs](https://img.shields.io/badge/100xDevs-Cohort%203.0-blueviolet?style=for-the-badge)](https://100xdevs.com/)
 
 > **A comprehensive Web Development & DevOps repository documenting my journey through modern tech stacks, including the complete syllabus of Harkirat Singh's Cohort 3.0.**

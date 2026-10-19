@@ -3,9 +3,8 @@
 [![GitHub License](https://img.shields.io/github/license/prashant-sagar-shakya/Web-Chronicles?style=for-the-badge&color=blue)](https://github.com/prashant-sagar-shakya/Web-Chronicles/blob/main/LICENSE)
 [![Repo Size](https://img.shields.io/github/repo-size/prashant-sagar-shakya/Web-Chronicles?style=for-the-badge&color=green)](https://github.com/prashant-sagar-shakya/Web-Chronicles)
 [![Last Commit](https://img.shields.io/github/last-commit/prashant-sagar-shakya/Web-Chronicles?style=for-the-badge&color=orange)](https://github.com/prashant-sagar-shakya/Web-Chronicles/commits/main)
-[![100xDevs](https://img.shields.io/badge/100xDevs-Cohort%203.0-blueviolet?style=for-the-badge)](https://100xdevs.com/)
 
-> **A comprehensive Web Development repository documenting my journey through modern tech stacks, including the web-dev syllabus of Harkirat Singh's Cohort 3.0.**
+> **A comprehensive Web Development repository documenting my journey through modern tech stacks.**
 
 ---
 
@@ -15,27 +14,11 @@ This repository serves as a central hub for my coding journey, featuring structu
 
 | 📂 Directory                 | 📝 Description                                                           |
 | :--------------------------- | :----------------------------------------------------------------------- |
-| **Cohort 3.0**               | Web-Dev journey through 100xDevs Cohort 3.0.                             |
 | **Javascript-Chai-Aur-Code** | In-depth JavaScript mastery with Hitesh Choudhary.                       |
 | **Javascript-JSM**           | Advanced concepts from JavaScript Mastery.                               |
 | **Learning-React HuXn**      | Hands-on React.js projects and patterns.                                 |
 | **Learning-Tailwind CWH**    | Styling mastery with Tailwind CSS.                                       |
 | **Learning-HTML CN**         | Semantic HTML and accessibility foundations.                             |
-
----
-
-## 🔥 Featured: 100xDevs Cohort 3.0
-
-Harkirat Singh's **Cohort 3.0** is a rigorous Full Stack bootcamp.
-
-### 🌐 Track 1: Full-Stack Web Development
-- **Foundation:** HTML, CSS, JavaScript, VS Code, Terminal mastery.
-- **MERN Stack:**
-  - **Frontend:** React.js, State Management (Recoil/Redux), Tailwind CSS.
-  - **Backend:** Node.js, Express.js, JWT Auth, Zod Validation.
-  - **Database:** PostgresQL, Prisma ORM.
-
-</details>
 
 ---
 

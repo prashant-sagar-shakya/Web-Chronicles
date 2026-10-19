@@ -1,6 +1,0 @@
-Zoo.txt
-Zoo_animals.jpg
-Zookeeper_notes.txt
-Lion.txt
-Tiger.txt
-Zebra.txt
